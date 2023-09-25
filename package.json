@@ -1,0 +1,31 @@
+{
+  "name": "task-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha src/tests/*.test.js",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "task",
+    "management"
+  ],
+  "author": "Yashvant Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.1",
+    "tap": "^18.1.4"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.1"
+  },
+  "type": "commonjs"
+}
