@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../../index'); // Replace with the correct path to your Express app
+const app = require('../../index');
 const { expect } = chai;
 
 chai.use(chaiHttp);
@@ -17,18 +17,18 @@ describe('Task Controller Tests', () => {
             })
             .end((err, res) => {
                 if (err) {
-                    console.error(err); // Log the error
-                    return done(err); // Pass the error to done()
+                    console.error(err);
+                    return done(err);
                 }
 
                 try {
                     expect(res).to.have.status(201);
                     expect(res.body).to.have.property('id');
                     expect(res.body).to.have.property('message');
-                    done(); // Mark the test as complete
+                    done();
                 } catch (assertionError) {
-                    console.error(assertionError); // Log assertion error
-                    done(assertionError); // Pass assertion error to done()
+                    console.error(assertionError);
+                    done(assertionError);
                 }
             });
     });
@@ -36,7 +36,7 @@ describe('Task Controller Tests', () => {
     it('should update an existing task', (done) => {
         chai
             .request(app)
-            .put('/api/tasks/1') // Make sure to provide a valid task ID
+            .put('/api/tasks/1')
             .send({
                 title: 'Updated Task',
                 description: 'This is an updated test task',
@@ -44,16 +44,16 @@ describe('Task Controller Tests', () => {
             })
             .end((err, res) => {
                 if (err) {
-                    console.error(err); // Log the error
-                    return done(err); // Pass the error to done()
+                    console.error(err);
+                    return done(err);
                 }
                 try {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message');
-                    done(); // Mark the test as complete
+                    done();
                 } catch (assertionError) {
-                    console.error(assertionError); // Log assertion error
-                    done(assertionError); // Pass assertion error to done()
+                    console.error(assertionError);
+                    done(assertionError);
                 }
             });
     });
@@ -64,17 +64,17 @@ describe('Task Controller Tests', () => {
             .get('/api/tasks')
             .end((err, res) => {
                 if (err) {
-                    console.error(err); // Log the error
-                    return done(err); // Pass the error to done()
+                    console.error(err);
+                    return done(err);
                 }
                 try {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('tasks');
                     expect(res.body.tasks).to.be.an('array');
-                    done(); // Mark the test as complete
+                    done();
                 } catch (assertionError) {
-                    console.error(assertionError); // Log assertion error
-                    done(assertionError); // Pass assertion error to done()
+                    console.error(assertionError);
+                    done(assertionError);
                 }
             });
     });

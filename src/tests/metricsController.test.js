@@ -12,8 +12,8 @@ describe('Metrics Controller Tests', () => {
             .get('/api/metrics')
             .end((err, res) => {
                 if (err) {
-                    console.error(err); // Log the error
-                    done(err); // Pass the error to done()
+                    console.error(err);
+                    done(err);
                     return;
                 }
 
@@ -23,8 +23,8 @@ describe('Metrics Controller Tests', () => {
                     expect(res.body).to.have.property('timelineMetrics');
                     done();
                 } catch (assertionError) {
-                    console.error(assertionError); // Log assertion error
-                    done(assertionError); // Pass assertion error to done()
+                    console.error(assertionError);
+                    done(assertionError);
                 }
             });
     });

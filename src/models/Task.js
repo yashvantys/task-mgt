@@ -9,7 +9,7 @@ class Task {
                 'INSERT INTO tasks (title, description, status) VALUES (?, ?, ?)',
                 [title, description, status]
             );
-            return result.insertId; // Return the ID of the newly created task
+            return result.insertId;
         } catch (error) {
             throw error;
         }
@@ -47,8 +47,6 @@ class Task {
                 'SELECT * FROM tasks WHERE id = ?',
                 [id]
             );
-
-            // Return only the rows
             return rows;
         } catch (error) {
             throw error;
@@ -61,7 +59,6 @@ class Task {
                 'DELETE FROM tasks WHERE id = ?',
                 [id]
             );
-
             return results;
         } catch (error) {
             throw error;
@@ -73,7 +70,6 @@ class Task {
             const [result] = await this.db.query(
                 'SELECT status, COUNT(*) as count FROM tasks GROUP BY status'
             );
-
             const metrics = {
                 open_tasks: 0,
                 inprogress_tasks: 0,
